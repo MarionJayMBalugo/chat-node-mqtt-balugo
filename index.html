@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MQTT</title> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+</head>
+<link rel="stylesheet" type="text/css" href="index.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div id="publisher"><h1>Broker</h1></div>
+          <input class="form-control" type="text" id="address" value="wss://test.mosquitto.org:8081/mqtt">
+          <button class="btn" id="btn_connect">Connect</button>
+          <button class="btn" id="btn_Disconnect">DisConnect</button>
+
+          <div id="status" >status</div>
+        </div>
+
+      <div class="col-sm-4" >       
+        <div class="shadow-lg   rounded" >
+          <div id="publisher"><h1>Publisher</h1></div>
+            <input class="form-control" type="text" placeholder="Topic" id="topic_receive">
+            <input class="form-control" type="text" placeholder="Payload" id="payload">
+            <button class="btn" id="btn_publish">Publish</button>
+        </div>
+      </div>
+      <div class="col-sm-4" >
+        
+      </div>
+      <div class="col-sm-4">
+        <div class="shadow-lg  rounded">
+          <div id="Subscriber"><h1>Subscriber</h1></div>
+            <input class="form-control" type="text" placeholder="Topic" id="topic_give">
+            <button class="btn" id="btn_subscribe">Subscribe</button>
+            <button class="btn" id="btn_unsubscribe">Unsubs</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Open table
+    </button>
+  
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+            <table class="table table-hover table-bordered">
+              <thead>
+  
+                <tr class="success">
+                  <th>Topic</th>
+                  <th>Message</th>
+                  <th>TimeSpan</th>
+                </tr>
+              </thead>
+              <tbody>
+  
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+
+</body>
+<script src="scripts/browser-mqtt.js"></script>
+<script src="scripts/controller.js"></script> 
+</html>
